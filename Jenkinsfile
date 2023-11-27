@@ -16,7 +16,7 @@ pipeline{
         stage('Run Container') {
             steps {
                 script {
-                    bat 'docker run rm --name jenkins-teste -p 8080:8080 lucasycosta/tst-jenkins'
+                    bat 'docker run --rm --name jenkins-teste -p 8080:8080 lucasycosta/tst-jenkins'
                 }
             }
         }
