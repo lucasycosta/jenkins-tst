@@ -23,6 +23,7 @@ pipeline{
         stage('Stop Container') {
             steps {
                 script {
+                    sleep(20)
                     bat 'docker stop jenkins-teste'
                 }
             }
