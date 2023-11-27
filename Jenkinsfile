@@ -8,8 +8,8 @@ pipeline{
         }
         stage(){
             steps{
-                dir('C://Users//lycya//.jenkins//workspace//teste//target'){
-                    bat 'java -jar test-jar-jenkins-0.0.1-SNAPSHOT.jar'
+                script{
+                    dockerapp = docker.build("tst-jenkins", '-f ./Dockerfile ./')
                 }
             }
         }
