@@ -13,5 +13,12 @@ pipeline{
                 }
             }
         }
+        stage('Run Container') {
+            steps {
+                script {
+                    bat 'docker run -p 8080:8080 lucasycosta/tst-jenkins'
+                }
+            }
+        }
     }
 }
