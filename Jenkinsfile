@@ -16,6 +16,7 @@ pipeline{
                 sh 'mvn test'
             }
         }
+        /*
         stage('SonarQube') {
             environment{
                 scannerHome = tool 'SONAR_SCANNER'
@@ -24,6 +25,7 @@ pipeline{
                 sh "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=tst-jenkins -Dsonar.projectName='tst-jenkins' -Dsonar.host.url=http://localhost:9000 -Dsonar.java.binaries=target -Dsonar.token=sqp_dce8b7f508a420f1f53412b1be2de41706efa516"
             }
         }
+        */
         stage('Build Image') {
             steps {
                 script {
