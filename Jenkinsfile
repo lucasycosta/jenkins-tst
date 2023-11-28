@@ -30,10 +30,6 @@ pipeline{
             steps {
                 script {
                     bat 'docker run --rm --name jenkins-teste -p 8080:8080 lucasycosta/tst-jenkins'
-                }
-            }
-            steps {
-                script {
                     bat 'docker stop jenkins-teste'
                 }
             }
