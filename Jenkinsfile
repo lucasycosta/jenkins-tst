@@ -22,7 +22,7 @@ pipeline{
         stage('Build Image') {
             steps {
                 script {
-                    bat 'docker build -t lucasycosta/tst-jenkins .'
+                    bat 'docker build -t rmi lucasycosta/tst-jenkins .'
                 }
             }
         }
