@@ -16,15 +16,9 @@ pipeline{
                 scannerHome = tool 'SONAR_SCANNER'
             }
             steps{
-                withSonarQubeEnv('SONAR_LOCAL'){
-                    bat "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=jenkins-test2 -Dsonar.projectName='jenkins-test2' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_57edf26224e2b11859c51e620667740b14ef2753"
-                }
-                
+                bat "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=jenkins-test2 -Dsonar.projectName='jenkins-test2' -Dsonar.host.url=http://localhost:9000 -Dsonar.java.binaries=target -Dsonar.token=sqp_db30b9878e1f2cbcf02ed05040ee38507bf37d9d"
             }
         }
-
-
-        
         stage('Build Image') {
             steps {
                 script {
