@@ -33,5 +33,13 @@ pipeline{
                 }
             }
         }
+
+        stage('Stop Container') {
+            steps {
+                script {
+                    bat 'docker stop jenkins-teste'
+                }
+            }
+        }
     }
 }
