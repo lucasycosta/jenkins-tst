@@ -22,7 +22,7 @@ pipeline{
         stage('Build Image') {
             steps {
                 script {
-                    bat 'docker build -t rmi lucasycosta/tst-jenkins .'
+                    bat 'docker build -t lucasycosta/tst-jenkins .'
                 }
             }
         }
@@ -32,8 +32,6 @@ pipeline{
                     bat 'docker run --rm --name jenkins-teste -p 8080:8080 lucasycosta/tst-jenkins'
                 }
             }
-        }
-        stage('Stop Container') {
             steps {
                 script {
                     bat 'docker stop jenkins-teste'
