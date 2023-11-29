@@ -36,7 +36,13 @@ pipeline{
         stage('Run Container') {
             steps {
                 script {
-                    bat 'docker run --rm --name jenkins-teste -p 8080:8080 lucasycosta/tst-jenkins'
+                    bat 'docker run -d --rm --name jenkins-teste -p 8080:8080 lucasycosta/tst-jenkins'
+                }
+            }
+        }
+        stage('Stop Container') {
+            steps {
+                script {
                     bat 'docker stop jenkins-teste'
                 }
             }
