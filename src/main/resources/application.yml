@@ -1,0 +1,16 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'prometheus, health, indo, metrics'
+  endpoint:
+    health:
+      show-details: always
+       
+spring:
+   application:
+      name: test-jar-jenkins
+
+   profiles:
+      active: default, dev
+    

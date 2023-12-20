@@ -1,0 +1,22 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+ - job_name: 'aplication'
+   scrape_interval: 5s
+   metrics_path: '/actuator/prometheus'
+   static_configs:
+   - targets: ['host.docker.internal:8080'] 
+     labels:
+      aplication: "tst-prom"
+
+ - job_name: 'serverMetrics'
+   static_configs:
+   - targets: ['host.docker.internal:9182'] 
+
+ - job_name: 'dbMetrics'
+   static_configs:
+   - targets: ['host.docker.internal:9187'] 
+
+ 
