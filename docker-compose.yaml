@@ -40,7 +40,6 @@ services:
     networks:
       - prom  
     
-
   prometheus:
     image: prom/prometheus:latest
     ports:
@@ -48,6 +47,7 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus
+      - ./alert-rules.yaml:/etc/prometheus/alert-rulers.rules
     networks:
       - prom
 
@@ -73,10 +73,15 @@ services:
     image: prom/alertmanager:v0.25.0
     ports:
       - 9093:9093
+    volumes:
+      - ./alert-manager.yaml:/prometheus/alertmanager.yml
+    command: 
+      - '--config.file=/prometheus/alertmanager.yml'
     networks:
       - prom
     depends_on:
       - prometheus
+    
   
   
 

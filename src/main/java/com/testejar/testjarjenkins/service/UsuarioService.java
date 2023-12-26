@@ -1,6 +1,8 @@
 package com.testejar.testjarjenkins.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,10 @@ public class UsuarioService {
 	@Counted(value = "usuario.counted")
 	public Usuario cadastrar(Usuario usuario) {
 		return usuarioRepository.save(usuario);
+	}
+
+	@Counted(value = "usuarioBuscar.counted")
+	public List<Usuario> buscar(){
+		return usuarioRepository.findAll();
 	}
 }

@@ -1,6 +1,10 @@
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
+  scrape_timeout: 10s
+
+rule_files:
+  - alert-rulers.rules
 
 scrape_configs:
  - job_name: 'aplication'
@@ -18,5 +22,12 @@ scrape_configs:
  - job_name: 'dbMetrics'
    static_configs:
    - targets: ['host.docker.internal:9187'] 
+
+alerting:
+  alertmanagers:
+  - scheme: http
+    static_configs:
+      - targets:
+        - "aletmanager:9093"
 
  

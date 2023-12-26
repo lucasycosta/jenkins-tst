@@ -1,0 +1,22 @@
+groups:
+- name: Postgree
+  rules:
+  - alert: PostgreeDown
+    expr: pg_up != 1 or absent (pg_up) == 1
+    for: 10s
+    labels:
+      team: database
+    annotations:
+      titulo: Banco de dados caiu
+      descricao: O servidor de banco de dados caiu
+
+- name: Web
+  rules:
+  - alert: WebComMuitoAcesso
+    expr: rate(http_server_requests_seconds_count{uri="/actuator/prometheus"}[1m]) > 0.2
+    for: 20s
+    labels:
+      team: web
+    annotations:
+      titulo: Muitas requisicoes
+      descricao: Muitas requisicoes no web
