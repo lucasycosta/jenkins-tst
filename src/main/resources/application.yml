@@ -12,5 +12,5 @@ spring:
       name: test-jar-jenkins
 
    profiles:
-      active: default, dev
+      active: default, local
     
